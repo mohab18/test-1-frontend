@@ -6,6 +6,7 @@ const PageList = () => {
   const [allPagesChecked, setAllPagesChecked] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
   const [pressedItem, setPressedItem] = useState(null);
+  const [donePressed, setDonePressed] = useState(false);
   const pages = ['Page 1', 'Page 2', 'Page 3', 'Page 4', 'Page 5', 'Page 6'];
 
   const togglePage = (page) => {
@@ -33,11 +34,12 @@ const PageList = () => {
           />
         </svg>
       );
-    } else if (isHovered || isPressed) {
+    }
+     else if (isPressed) {
       return (
         <svg width="15" height="11" viewBox="0 0 15 11" fill="none">
           <path 
-            d="M1 5.5L5 9.5L14 1" 
+            d="M1 5.5 L5.8 10 L14.6 1.2" 
             stroke="#878787" 
             strokeWidth="1.5" 
             strokeLinecap="round" 
@@ -46,6 +48,20 @@ const PageList = () => {
         </svg>
       );
     }
+     else if (isHovered) {
+      return (
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="none">
+          <path 
+            d="M1 5.5 L5.8 10 L14.6 1.2" 
+            stroke="#E3E3E3" 
+            strokeWidth="1.5" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    }
+    
     return null;
   };
 
@@ -114,10 +130,16 @@ const PageList = () => {
           })}
         </div>
 
-        <div className="divider"></div>
+          <div className={`divider ${donePressed ? 'darker' : ''}`}></div>
+
 
         {/* Done Button */}
-        <button className="done-button">
+        <button 
+          className="done-button"
+          onMouseDown={() => setDonePressed(true)}
+          onMouseUp={() => setDonePressed(false)}
+          onMouseLeave={() => setDonePressed(false)}
+        >
           Done
         </button>
       </div>

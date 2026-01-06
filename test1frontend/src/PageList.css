@@ -32,7 +32,7 @@
   justify-content: space-between;
   width: 370px;
   height: 42px;
-  padding: 8px 15px 8px 22px;
+  padding: 8px 22px 8px 22px;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -66,7 +66,7 @@
   justify-content: space-between;
   width: 370px;
   height: 42px;
-  padding: 8px 15px 8px 22px;
+  padding: 8px 22px 8px 22px;
   cursor: pointer;
   box-sizing: border-box;
 }
@@ -79,7 +79,7 @@
   letter-spacing: 0px;
   color: #1F2128;
   display: flex;
-  align-items: center; /* vertical-align: middle equivalent */
+  align-items: center; 
 }
 
 
@@ -153,7 +153,6 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   box-sizing: border-box;
 }
 
@@ -165,6 +164,7 @@
 
 .done-button:active {
   background-color: #FFCE22;
+   
 }
 
 /* Divider */
@@ -179,5 +179,10 @@
   content: "";
   display: block;
   height: 1px;
-  background-color: #EEEEEE;
+  background-color: #CDCDCD;
+  
+}
+
+.divider.darker::after {
+  background-color: #BFBFBF;
 }
